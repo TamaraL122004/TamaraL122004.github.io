@@ -1,0 +1,41 @@
+html {
+  background-color: #000000e1;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  color: beige;
+  font-size: 2.5rem;
+}
+
+.main {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  padding: 3rem;
+}
+
+a {
+  color: rgb(218, 188, 221);
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  border: 1px solid rgb(109, 54, 114);
+  border-radius: 10px;
+}
+
+.boton {
+  margin-block: 1.5rem;
+}
+
+a:hover {
+  background-color: rgb(82, 37, 83);
+  transform: scale(1.1);
+  box-shadow: 0px 5px 10px rgb(121, 74, 126);
+}
