@@ -1,21 +1,20 @@
 let particulas = [];
 
 function setup() {
-  let myCanvas = createCanvas(windowWidth, windowHeight);
-  // let myCanvas = createCanvas(400, 600);
-  myCanvas.parent("my-p5-sketch");
+  createCanvas(windowWidth, windowHeight);
   noStroke();
 }
 
 function draw() {
-  background(0, 90);
+  background(0);
+  
+   for (let i = 0; i < 6; i++) {
+  let nuevaParticula = new Particula(mouseX, mouseY);
+  particulas.push(nuevaParticula);
+   }
 
-  for (let i = 0; i < 5; i++) {
-    let nuevaParticula = new Particula(mouseX, mouseY);
-    particulas.push(nuevaParticula);
-  }
 
-  // Actualizar y mostrar las burbujas
+  // Actualizar y mostrar las partículas de fuego
   for (let i = particulas.length - 1; i >= 0; i--) {
     particulas[i].update();
     particulas[i].display();
@@ -27,15 +26,15 @@ function draw() {
   }
 }
 
-// Clase para las burbujas
+// Clase para las partículas de fuego
 class Particula {
   constructor(x, y) {
     this.posx = x;
     this.posy = y;
-    this.vel = createVector(random(-4, 4), random(-4, 4)); // Movimiento hacia arriba y algo lateral
+    this.vel = createVector(random(-2, 2), random(1, -9)); // Movimiento hacia arriba y algo lateral
     this.tamano = random(30, 50); // Tamaño al azar
     this.transparencia = 250; // Comienza totalmente opaca
-    this.color = [128, 0, random(255, 0), 0]; // Colores
+    this.color = [128, 0, 128, random(255,0,250), 0]; // Colores 
   }
 
   // Actualizar la partícula
@@ -48,7 +47,7 @@ class Particula {
 
   // Mostrar la partícula
   display() {
-    stroke(250);
+    stroke(250)
     fill(this.color[0], this.color[1], this.color[2], this.transparencia); // Usar color con transparencia
     ellipse(this.posx, this.posy, this.tamano); // Dibujar la partícula como un círculo
   }
